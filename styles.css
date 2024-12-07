@@ -403,3 +403,19 @@ button:disabled {
 [data-theme="dark"] .container {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.2s ease-in-out 0s 2;
+}
+
+textarea.error, 
+input.error {
+    border-color: #e74c3c !important;
+    background-color: rgba(231, 76, 60, 0.1) !important;
+}

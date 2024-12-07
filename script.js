@@ -48,7 +48,10 @@ function splitMessage(message) {
 
 function containsBadWords(text) {
     const lowerText = text.toLowerCase();
-    return badWords.some(word => lowerText.includes(word.toLowerCase()));
+    const foundBadWords = badWords.filter(word => 
+        lowerText.includes(word.toLowerCase())
+    );
+    return foundBadWords.length > 0 ? foundBadWords : false;
 }
 
 function hasRepeatedChars(text) {
@@ -115,7 +118,16 @@ form.addEventListener('submit', async (e) => {
     }
 
     if (containsBadWords(confessionText)) {
-        showStatus('Tâm sự của bạn chứa từ ngữ không phù hợp. Vui lòng kiểm tra lại.', 'error');
+        const badWordsFound = containsBadWords(confessionText);
+        showStatus(`Nội dung chứa từ ngữ không phù hợp: "${badWordsFound.join(', ')}"`, 'error');
+        highlightBadWords(textarea, badWordsFound);
+        return;
+    }
+
+    if (nickname && containsBadWords(nickname)) {
+        const badWordsFound = containsBadWords(nickname);
+        showStatus(`Nickname chứa từ ngữ không phù hợp: "${badWordsFound.join(', ')}"`, 'error');
+        highlightBadWords(nicknameInput, badWordsFound);
         return;
     }
 
@@ -228,5 +240,21 @@ themeSwitch.addEventListener('click', () => {
 
 function updateThemeIcon(theme) {
     icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+}
+
+function highlightBadWords(element, badWords) {
+    const originalText = element.value;
+    element.style.color = '#e74c3c'; // Màu đỏ cho toàn bộ text
+    
+    // Thêm hiệu ứng rung
+    element.classList.add('shake');
+    setTimeout(() => {
+        element.classList.remove('shake');
+    }, 500);
+
+    // Trở lại màu bình thường sau 2 giây
+    setTimeout(() => {
+        element.style.color = '';
+    }, 2000);
 }
 

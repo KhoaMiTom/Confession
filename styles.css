@@ -23,6 +23,11 @@
     --discord-hover: #4752c4;
     --border-radius: 16px;
     --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    --gradient-1: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+    --gradient-2: linear-gradient(135deg, #FF6B6B 0%, #FF0000 100%);
+    --gradient-3: linear-gradient(135deg, #96FBC4 0%, #F9F586 100%);
+    --box-shadow-hover: 0 10px 20px rgba(0, 0, 0, 0.2);
+    --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 body {
@@ -41,10 +46,10 @@ body.dark-theme {
 
 .container {
     width: 100%;
-    max-width: 800px;
-    padding: 80px 20px 20px;
+    max-width: 900px;
+    padding: 100px 25px 40px;
     margin: 0 auto;
-    animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.6s var(--transition-bounce);
 }
 
 @keyframes fadeIn {
@@ -54,12 +59,12 @@ body.dark-theme {
 
 .confession-box {
     background: var(--box-bg-light);
-    padding: 2.5rem;
-    border-radius: var(--border-radius);
+    padding: 3rem;
+    border-radius: 24px;
     box-shadow: var(--card-shadow);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
+    transition: all 0.4s var(--transition-bounce);
     margin-bottom: 20px;
     position: relative;
     overflow: hidden;
@@ -76,7 +81,7 @@ body.dark-theme {
 }
 
 body.dark-theme .confession-box {
-    background: var(--box-bg-dark);
+    background: rgba(45, 55, 72, 0.9);
     border-color: rgba(255, 255, 255, 0.05);
 }
 
@@ -111,21 +116,22 @@ body.dark-theme .subtitle {
 
 textarea {
     width: 100%;
-    min-height: 200px;
-    padding: 15px;
-    border: 2px solid rgba(33, 150, 243, 0.1);
-    border-radius: 12px;
-    font-size: 1rem;
+    min-height: 220px;
+    padding: 20px;
+    border: 2px solid rgba(33, 150, 243, 0.15);
+    border-radius: 16px;
+    font-size: 1.1rem;
     font-family: 'Quicksand', sans-serif;
     resize: vertical;
     transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9);
     color: var(--text-primary-light);
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+    line-height: 1.6;
 }
 
 body.dark-theme textarea {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(45, 55, 72, 0.8);
     color: var(--text-primary-dark);
     border-color: rgba(255, 255, 255, 0.1);
 }
@@ -156,15 +162,15 @@ body.dark-theme .word-count {
 
 .submit-btn {
     width: 100%;
-    padding: 15px;
-    background: var(--accent-color);
+    padding: 18px 25px;
+    background: var(--gradient-1);
     color: white;
     border: none;
-    border-radius: var(--border-radius);
-    font-size: 1.1rem;
-    font-weight: 600;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s var(--transition-bounce);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -172,6 +178,7 @@ body.dark-theme .word-count {
     box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
     position: relative;
     overflow: hidden;
+    letter-spacing: 0.5px;
 }
 
 .submit-btn::before {
@@ -196,8 +203,8 @@ body.dark-theme .word-count {
 
 .submit-btn:hover {
     background: var(--accent-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px -2px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .submit-btn::after {
@@ -262,19 +269,20 @@ body.dark-theme .faq-section h2 {
 }
 
 .faq-item {
-    background: var(--box-bg-light);
-    padding: 20px;
-    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 25px;
+    border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    transition: all 0.3s ease;
+    transition: all 0.4s var(--transition-bounce);
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(10px);
 }
 
 body.dark-theme .faq-item {
-    background: var(--box-bg-dark);
+    background: rgba(45, 55, 72, 0.8);
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -287,8 +295,8 @@ body.dark-theme .faq-item p {
 }
 
 .faq-item:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--card-shadow);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--box-shadow-hover);
     border-color: var(--accent-color);
 }
 
@@ -326,38 +334,39 @@ body.dark-theme .faq-item p {
 
 @media (max-width: 768px) {
     .container {
-        padding: 70px 15px 15px;
-        margin-top: 0;
+        padding: 80px 15px 20px;
     }
     
     .confession-box {
-        padding: 1.5rem;
-        margin: 10px;
-        border-radius: var(--border-radius);
+        padding: 2rem;
+        border-radius: 20px;
+    }
+    
+    textarea {
+        min-height: 180px;
+        font-size: 1rem;
+        padding: 15px;
+    }
+    
+    .submit-btn {
+        padding: 15px 20px;
+        font-size: 1.1rem;
     }
     
     .faq-grid {
-        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .faq-item {
+        padding: 20px;
     }
     
     h1 {
         font-size: 1.8rem;
     }
     
-    .theme-toggle {
-        top: 10px;
-        left: 10px;
-    }
-    
-    .notification {
-        left: 10px;
-        right: 10px;
-        top: unset;
-        bottom: 10px;
-    }
-    
-    .notification-content {
-        min-width: unset;
+    .subtitle {
+        font-size: 1rem;
     }
 }
 
@@ -555,4 +564,14 @@ textarea::placeholder {
 
 body.dark-theme textarea::placeholder {
     color: var(--text-muted-dark);
+}
+
+@keyframes floatAnimation {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating {
+    animation: floatAnimation 3s ease-in-out infinite;
 }

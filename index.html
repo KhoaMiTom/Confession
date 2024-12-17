@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KhoaDev | Confession</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/icon.png">
+</head>
+<body>
+    <div class="container">
+        <div class="top-buttons">
+            <button id="themeToggle" class="theme-toggle">
+                <span class="sun">🌞</span>
+                <span class="moon">🌙</span>
+            </button>
+            <a href="https://discord.gg/HjEDSFX4Bm" target="_blank" class="discord-btn">
+                <svg class="discord-icon" viewBox="0 0 24 24">
+                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
+                </svg>
+                Tham gia Discord
+            </a>
+        </div>
+        <div id="notification" class="notification hidden">
+            <div class="notification-content">
+                <span class="notification-message"></span>
+                <button class="notification-close">×</button>
+            </div>
+        </div>
+        <div class="confession-box">
+            <h1>💌 Confession 💌</h1>
+            <p class="subtitle">Hãy chia sẻ những điều bạn muốn nói...</p>
+            
+            <div class="form-group">
+                <textarea id="confessionText" placeholder="Viết tâm sự của bạn ở đây..." maxlength="4000"></textarea>
+                <div class="word-count">
+                    <span id="currentLength">0</span>
+                    <span>/</span>
+                    <span id="maxLength">4000</span>
+                </div>
+            </div>
+
+            <button id="submitBtn" class="submit-btn">
+                <span class="btn-text">Gửi Tâm Sự</span>
+                <div class="loading-spinner hidden"></div>
+            </button>
+
+            <div class="faq-section">
+                <h2>❓ Câu Hỏi Thường Gặp</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>🔒 Quy tắc ứng xử?</h3>
+                        <p>Không được nói tục, chửi thề, công kích cá nhân hoặc gây war. Hãy tôn trọng mọi người.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>🔒 Bảo mật thông tin?</h3>
+                        <p>Chúng tôi chỉ lưu IP để tránh spam. Thông tin của bạn sẽ được bảo mật tuyệt đối.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>📝 Giới hạn ký tự?</h3>
+                        <p>Mỗi confession có thể dài tối đa 4000 ký tự. Nếu dài hơn sẽ tự động chia nhỏ.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>⚠️ Nội dung cấm?</h3>
+                        <p>Không chấp nhận nội dung 18+, bạo lực, quảng cáo, spam, links hoặc mentions. Vi phạm sẽ bị chặn IP.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
